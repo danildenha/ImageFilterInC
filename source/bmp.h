@@ -33,3 +33,4 @@ typedef struct
     DWORD  bfOffBits;
 } __attribute__((__packed__))
 BITMAPFILEHEADER;
+
