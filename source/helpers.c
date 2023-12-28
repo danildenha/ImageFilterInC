@@ -36,3 +36,52 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     }
     return;
 }
+
+// Blur image
+void blur(int height, int width, RGBTRIPLE image[height][width])
+{
+    RGBTRIPLE temp[height][width];
+
+    //making a copy
+    for (int row = 0; row < height; row++)
+    {
+        for (int column = 0; column < width; column++)
+        {
+            temp[row][column] = image[row][column];
+        }
+    }
+    //iterating through 2d array
+    for (int row = 0; row < height; row++)
+    {
+        for (int column = 0; column < width; column++)
+        {
+            int count;
+            double r_total;
+            double g_total;
+            double b_total;
+            count = r_total = g_total = b_total = 0;
+            for (int h = -1; h < 2; h++)
+            {
+                for (int l = -1; l < 2; l++)
+                {
+                    if ((row + h < 0) || (row + h >= height))
+                    {
+                        continue;
+                    }
+                    if ((column + l < 0) || (column + l >= width))
+                    {
+                        continue;
+                    }
+                    r_total += temp[row + h][column + l].rgbtRed;
+                    g_total += temp[row + h][column + l].rgbtGreen;
+                    b_total += temp[row + h][column + l].rgbtBlue;
+                    count++;
+                }
+            }
+            image[row][column].rgbtRed = round(r_total / count);
+            image[row][column].rgbtGreen = round(g_total / count);
+            image[row][column].rgbtBlue = round(b_total / count);
+        }
+    }
+    return;
+}
