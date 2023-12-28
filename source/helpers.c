@@ -85,3 +85,88 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     }
     return;
 }
+
+
+//Using Sobel Operator
+void edges(int height, int width, RGBTRIPLE image[height][width])
+{
+    RGBTRIPLE temp[height][width];
+
+    //creating a copy
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            temp[i][j] = image[i][j];
+        }
+    }
+
+    //creating Sobel 3x3 2d arrays for calculation
+    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+    int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
+
+    for (int row = 0; row < height; row++)
+    {
+        for (int column = 0; column < width; column++)
+        {
+            //declaring variable of Gx and Gy squares
+            //for better understanding search how Sobel Operator works
+            double Gxr_total;
+            double Gxg_total;
+            double Gxb_total;
+            double Gyr_total;
+            double Gyg_total;
+            double Gyb_total;
+            Gxr_total = Gxg_total = Gxb_total = Gyr_total = Gyg_total = Gyb_total = 0;
+
+            //itearting through 3x3 square
+            for (int h = -1; h < 2; h++)
+            {
+                for (int l = -1; l < 2; l++)
+                {
+                    //checking for edge and corner pixels
+                    if ((row + h < 0) || (row + h >= height))
+                    {
+                        continue;
+                    }
+                    if ((column + l < 0) || (column + l >= width))
+                    {
+                        continue;
+                    }
+
+                    //calculating total gx and gy for each color
+                    Gxr_total += temp[row + h][column + l].rgbtRed * Gx[h + 1][l + 1];
+                    Gxg_total += temp[row + h][column + l].rgbtGreen * Gx[h + 1][l + 1];
+                    Gxb_total += temp[row + h][column + l].rgbtBlue * Gx[h + 1][l + 1];
+                    Gyr_total += temp[row + h][column + l].rgbtRed * Gy[h + 1][l + 1];
+                    Gyg_total += temp[row + h][column + l].rgbtGreen * Gy[h + 1][l + 1];
+                    Gyb_total += temp[row + h][column + l].rgbtBlue * Gy[h + 1][l + 1];
+                }
+            }
+            //using Sobel formula to calculate RGB color values
+            int r = (round(sqrt(Gxr_total * Gxr_total + Gyr_total * Gyr_total)));
+            int g = (round(sqrt(Gxg_total * Gxg_total + Gyg_total * Gyg_total)));
+            int b = (round(sqrt(Gxb_total * Gxb_total + Gyb_total * Gyb_total)));
+
+            //max value cap to 255
+            if (r > 255)
+            {
+                r = 255;
+            }
+            if (g > 255)
+            {
+                g = 255;
+            }
+            if (b > 255)
+            {
+                b = 255;
+            }
+
+            //assign pixels to proper RGB values
+            image[row][column].rgbtRed = r;
+            image[row][column].rgbtGreen = g;
+            image[row][column].rgbtBlue = b;
+        }
+    }
+    return;
+}
