@@ -17,5 +17,32 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    // Ensure only one filter
+    if (getopt(argc, argv, filters) != -1)
+    {
+        printf("Only one filter allowed.\n");
+        return 2;
+    }
+
+    // Ensure proper usage
+    if (argc != optind + 2)
+    {
+        printf("Usage: ./filter [flag] infile outfile\n");
+        return 3;
+    }
+
+    // Remember filenames
+    char *infile = argv[optind];
+    char *outfile = argv[optind + 1];
+
+    // Open input file
+    FILE *inptr = fopen(infile, "r");
+    if (inptr == NULL)
+    {
+        printf("Could not open %s.\n", infile);
+        return 4;
+    }
+
+
     return 0;
 }
