@@ -86,7 +86,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-
+// Detect edges
 //Using Sobel Operator
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
