@@ -121,6 +121,31 @@ int main(int argc, char *argv[])
             break;
     }
 
+    // Write outfile's BITMAPFILEHEADER
+    fwrite(&bf, sizeof(BITMAPFILEHEADER), 1, outptr);
 
+    // Write outfile's BITMAPINFOHEADER
+    fwrite(&bi, sizeof(BITMAPINFOHEADER), 1, outptr);
+
+    // Write new pixels to outfile
+    for (int i = 0; i < height; i++)
+    {
+        // Write row to outfile
+        fwrite(image[i], sizeof(RGBTRIPLE), width, outptr);
+
+        // Write padding at end of row
+        for (int k = 0; k < padding; k++)
+        {
+            fputc(0x00, outptr);
+        }
+    }
+
+    // Free memory for image
+    free(image);
+
+    // Close files
+    fclose(inptr);
+    fclose(outptr);
+    
     return 0;
 }
