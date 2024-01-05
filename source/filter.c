@@ -146,6 +146,5 @@ int main(int argc, char *argv[])
     // Close files
     fclose(inptr);
     fclose(outptr);
-    
     return 0;
 }
