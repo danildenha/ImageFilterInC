@@ -106,8 +106,4 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     //creating Sobel 3x3 2d arrays for calculation
     int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
     int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
-
-    for (int row = 0; row < height; row++)
-    {
-        for (int column = 0; column < width; column++)
-        {
+}
