@@ -50,3 +50,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             temp[row][column] = image[row][column];
         }
     }
+
+    //iterating through 2d array
+    for (int row = 0; row < height; row++)
+    {
+        for (int column = 0; column < width; column++)
+        {
+            int count;
+            double r_total;
+            double g_total;
+            double b_total;
+            count = r_total = g_total = b_total = 0;
