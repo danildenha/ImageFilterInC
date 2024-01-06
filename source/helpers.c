@@ -87,3 +87,17 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     }
     return;
 }
+// Detect edges
+//Using Sobel Operator
+void edges(int height, int width, RGBTRIPLE image[height][width])
+{
+    RGBTRIPLE temp[height][width];
+
+    //creating a copy
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            temp[i][j] = image[i][j];
+        }
+    }
