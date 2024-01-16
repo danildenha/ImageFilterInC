@@ -108,8 +108,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
 
     for (int row = 0; row < height; row++)
-    {
-        for (int column = 0; column < width; column++)
-        {
+        for (int column = 0; column < width; column++) {
+            
+        }
     //_____________________________________________NOT FINISHED YET__________________________________________________
 }
