@@ -117,7 +117,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
             for (int h = -1; h < 2; h++)
                 for (int l = -1; l < 2; l++) {
-                    
+                    if ((row + h < 0) || (row + h >= height))
+                    {
+                        continue;
+                    }
+                    if ((column + l < 0) || (column + l >= width))
+                    {
+                        continue;
+                    }
                 }
     //_____________________________________________NOT FINISHED YET__________________________________________________
 }
