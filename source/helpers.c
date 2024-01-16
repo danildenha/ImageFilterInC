@@ -109,8 +109,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
     for (int row = 0; row < height; row++)
         for (int column = 0; column < width; column++) {
-            double Gxr_total, Gxg_total, Gxb_total;
-            double Gyr_total, Gyg_total, Gyb_total;
+            double Gxr_total, 
+            double Gxb_total;
+            double Gyr_total;
+            double Gyg_total;
+            double Gyb_total;
             Gxr_total = Gxg_total = Gxb_total = Gyr_total = Gyg_total = Gyb_total = 0;
         }
     //_____________________________________________NOT FINISHED YET__________________________________________________
