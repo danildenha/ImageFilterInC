@@ -118,12 +118,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             //itearting through 3x3 square
             for (int h = -1; h < 2; h++)
                 for (int l = -1; l < 2; l++) {
-                    if ((row + h < 0) || (row + h >= height))
-                    {
+                    //checking for edge and corner pixels
+                    if ((row + h < 0) || (row + h >= height)) {
                         continue;
                     }
-                    if ((column + l < 0) || (column + l >= width))
-                    {
+                    if ((column + l < 0) || (column + l >= width)) {
                         continue;
                     }
                 }
