@@ -109,6 +109,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
     for (int row = 0; row < height; row++)
         for (int column = 0; column < width; column++) {
+            //declaring variable of Gx and Gy squares
+            //for better understanding search how Sobel Operator works
             double Gxr_total, Gxg_total, Gxb_total;
             double Gyg_total, Gyr_total, Gyb_total;
             Gxr_total = Gxg_total = Gxb_total = Gyr_total = Gyg_total = Gyb_total = 0;
