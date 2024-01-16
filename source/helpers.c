@@ -115,6 +115,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             double Gyg_total, Gyr_total, Gyb_total;
             Gxr_total = Gxg_total = Gxb_total = Gyr_total = Gyg_total = Gyb_total = 0;
 
+            //itearting through 3x3 square
             for (int h = -1; h < 2; h++)
                 for (int l = -1; l < 2; l++) {
                     if ((row + h < 0) || (row + h >= height))
