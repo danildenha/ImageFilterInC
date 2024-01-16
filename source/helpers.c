@@ -125,6 +125,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if ((column + l < 0) || (column + l >= width)) {
                         continue;
                     }
+                    //calculating total gx and gy for each color
                     Gxr_total += temp[row + h][column + l].rgbtRed * Gx[h + 1][l + 1];
                     Gxg_total += temp[row + h][column + l].rgbtGreen * Gx[h + 1][l + 1];
                     Gxb_total += temp[row + h][column + l].rgbtBlue * Gx[h + 1][l + 1];
