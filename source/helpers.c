@@ -125,6 +125,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if ((column + l < 0) || (column + l >= width)) {
                         continue;
                     }
+                    Gxr_total += temp[row + h][column + l].rgbtRed * Gx[h + 1][l + 1];
+                    Gxg_total += temp[row + h][column + l].rgbtGreen * Gx[h + 1][l + 1];
+                    Gxb_total += temp[row + h][column + l].rgbtBlue * Gx[h + 1][l + 1];
+                    Gyr_total += temp[row + h][column + l].rgbtRed * Gy[h + 1][l + 1];
+                    Gyg_total += temp[row + h][column + l].rgbtGreen * Gy[h + 1][l + 1];
+                    Gyb_total += temp[row + h][column + l].rgbtBlue * Gy[h + 1][l + 1];
                 }
     //_____________________________________________NOT FINISHED YET__________________________________________________
 }
