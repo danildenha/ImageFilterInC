@@ -139,4 +139,5 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     Gyg_total += temp[row + h][column + l].rgbtGreen * Gy[h + 1][l + 1];
                     Gyb_total += temp[row + h][column + l].rgbtBlue * Gy[h + 1][l + 1];
                 }
-    //_____________________________________________NOT FINISHED YET__________________________________________________}
+    //_____________________________________________NOT FINISHED YET__________________________________________________
+}
