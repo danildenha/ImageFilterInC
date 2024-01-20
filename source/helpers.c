@@ -111,5 +111,32 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int column = 0; column < width; column++)
         {
 	
-    //_____________________________________________NOT FINISHED YET__________________________________________________
-}
+    int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
+
+    for (int row = 0; row < height; row++)
+        for (int column = 0; column < width; column++) {
+            //declaring variable of Gx and Gy squares
+            //for better understanding search how Sobel Operator works
+            double Gxr_total, Gxg_total, Gxb_total;
+            double Gyg_total, Gyr_total, Gyb_total;
+            Gxr_total = Gxg_total = Gxb_total = Gyr_total = Gyg_total = Gyb_total = 0;
+
+            //itearting through 3x3 square
+            for (int h = -1; h < 2; h++)
+                for (int l = -1; l < 2; l++) {
+                    //checking for edge and corner pixels
+                    if ((row + h < 0) || (row + h >= height)) {
+                        continue;
+                    }
+                    if ((column + l < 0) || (column + l >= width)) {
+                        continue;
+                    }
+                    //calculating total gx and gy for each color
+                    Gxr_total += temp[row + h][column + l].rgbtRed * Gx[h + 1][l + 1];
+                    Gxg_total += temp[row + h][column + l].rgbtGreen * Gx[h + 1][l + 1];
+                    Gxb_total += temp[row + h][column + l].rgbtBlue * Gx[h + 1][l + 1];
+                    Gyr_total += temp[row + h][column + l].rgbtRed * Gy[h + 1][l + 1];
+                    Gyg_total += temp[row + h][column + l].rgbtGreen * Gy[h + 1][l + 1];
+                    Gyb_total += temp[row + h][column + l].rgbtBlue * Gy[h + 1][l + 1];
+                }
+    //_____________________________________________NOT FINISHED YET__________________________________________________}
