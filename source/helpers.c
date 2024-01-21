@@ -142,7 +142,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 	    // using Sobel formula
 	    int r = (round(sqrt(Gxr_total * Gxr_total + Gyr_total * Gyr_total)));
 	    int g = (round(sqrt(Gxg_total * Gxg_total + Gyg_total * Gyg_total)));
-            int b = (round(sqrt(Gxb_total * Gxb_total + Gyb_total * Gyb_total)));
+      int b = (round(sqrt(Gxb_total * Gxb_total + Gyb_total * Gyb_total)));
 
     //_____________________________________________NOT FINISHED YET__________________________________________________
 }
