@@ -163,6 +163,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
          image[row][column].rgbtRed = r;
          image[row][column].rgbtGreen = g;
          image[row][column].rgbtBlue = b;
-
-    //_____________________________________________NOT FINISHED YET__________________________________________________
+         }
+         return;
 }
