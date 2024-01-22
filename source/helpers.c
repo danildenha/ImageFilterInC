@@ -140,22 +140,25 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     Gyg_total += temp[row + h][column + l].rgbtGreen * Gy[h + 1][l + 1];
                     Gyb_total += temp[row + h][column + l].rgbtBlue * Gy[h + 1][l + 1];
                 }
+
 	           // using Sobel formula
-        int r = (round(sqrt(Gxr_total * Gxr_total + Gyr_total * Gyr_total)));
-        int g = (round(sqrt(Gxg_total * Gxg_total + Gyg_total * Gyg_total)));
-        int b = (round(sqrt(Gxb_total * Gxb_total + Gyb_total * Gyb_total)));
-        if (r > 255)
-        {
-           r = 255;
-        }
-        if (g > 255)
-        {
-            g = 255;
-        }
-        if (b > 255)
-       {
-          b = 255;
-       }
+            int r = (round(sqrt(Gxr_total * Gxr_total + Gyr_total * Gyr_total)));
+            int g = (round(sqrt(Gxg_total * Gxg_total + Gyg_total * Gyg_total)));
+            int b = (round(sqrt(Gxb_total * Gxb_total + Gyb_total * Gyb_total)));
+
+            //max value to 255
+            if (r > 255)
+            {
+               r = 255;
+            }
+            if (g > 255)
+            {
+                g = 255;
+            }
+            if (b > 255)
+           {
+              b = 255;
+           }
 
     //_____________________________________________NOT FINISHED YET__________________________________________________
 }
